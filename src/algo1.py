@@ -1,0 +1,37 @@
+# encoding: utf-8
+import time
+start_time=time.time()
+def plus_grande_sequence_position_k(E, k=None):
+    if k is None:
+        k = len(E)-1
+    if k == 0:
+        return [[0]]
+    else :
+        S = plus_grande_sequence_position_k(E, k-1)
+
+        best = []
+        for j,s in enumerate(S):
+            if len(s) > len(best) and E[k] >= E [s[-1]]:
+                best = s
+        best = best + [k]
+        S.append(best)
+        return S
+
+def plus_grande_sequence(E):
+    if len(E) == 0:
+        return E
+    S = plus_grande_sequence_position_k(E)
+    best = []
+    for s in S:
+        if len(s) > len(best):
+            best = s
+    return best
+
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+b = plus_grande_sequence(E)
+print("E",E)
+print("indice:",b)
+print("valeurs:", [ E[i] for i in b ])
+
+print("--- %s seconds ---" % (time.time() - start_time))
+
