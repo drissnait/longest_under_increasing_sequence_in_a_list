@@ -1,5 +1,11 @@
 # encoding: utf-8
+from random import randint
 import time
+import psutil
+import os
+
+process = psutil.Process(os.getpid())
+
 start_time=time.time()
 def plus_grande_sequence_position_k(E, k=None):
     if k is None:
@@ -27,11 +33,18 @@ def plus_grande_sequence(E):
             best = s
     return best
 
-E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+l=[]
+for i in range(900):
+	l.append(randint(0,2000))
+#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+E=l
 b = plus_grande_sequence(E)
 print("E",E)
 print("indice:",b)
+print("\n\n")
 print("valeurs:", [ E[i] for i in b ])
-
-print("--- %s seconds ---" % (time.time() - start_time))
-
+print("\ninformation process\n")
+print(process.memory_info().rss)
+print(process.memory_info()[0])
+#print("--- %s seconds ---" % (time.time() - start_time))
+#print(l)

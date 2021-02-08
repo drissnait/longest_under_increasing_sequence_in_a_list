@@ -1,4 +1,10 @@
 # encoding: utf-8
+from random import randint
+import psutil
+import time
+import os
+
+process = psutil.Process(os.getpid())
 """
 version sans recursivite
 """
@@ -38,9 +44,24 @@ def plus_grande_sequence(E):
 
     seq.reverse()
     return seq
-    
-E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+
+l=[]
+for i in range(900):
+	l.append(randint(0,2000))
+	
+#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+E=l
 b = plus_grande_sequence(E)
 print("E",E)
 print("indice:",b)
 print("valeurs:", [ E[i] for i in b ])
+
+
+
+print("\ninformation process\n")
+print(process.memory_info().rss)
+print(process.memory_info()[0])
+
+
+
+
