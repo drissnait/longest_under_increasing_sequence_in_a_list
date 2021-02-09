@@ -8,6 +8,7 @@ process = psutil.Process(os.getpid())
 """
 version sans recursivite
 """
+start_time=time.time()
 
 def plus_grande_sequence(E):
     if len(E) == 0:
@@ -48,19 +49,21 @@ def plus_grande_sequence(E):
 l=[]
 for i in range(900):
 	l.append(randint(0,2000))
-	
 #E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
 E=l
 b = plus_grande_sequence(E)
 print("E",E)
 print("indice:",b)
+print("\n\n")
 print("valeurs:", [ E[i] for i in b ])
-
-
-
 print("\ninformation process\n")
 print(process.memory_info().rss)
-print(process.memory_info()[0])
+execution_time=time.time() - start_time
+print("---Temps d'execution:  %s seconds ---" +str(execution_time))
+file=open("../data/data_algo2_time.dat","a")
+file.write(str(execution_time))
+file.write("\n")
+file.close()
 
 
 

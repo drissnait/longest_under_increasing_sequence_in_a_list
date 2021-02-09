@@ -3,6 +3,8 @@ from random import randint
 import time
 import psutil
 import os
+import random
+import timeit
 
 process = psutil.Process(os.getpid())
 
@@ -45,6 +47,12 @@ print("\n\n")
 print("valeurs:", [ E[i] for i in b ])
 print("\ninformation process\n")
 print(process.memory_info().rss)
-print(process.memory_info()[0])
-#print("--- %s seconds ---" % (time.time() - start_time))
-#print(l)
+
+execution_time=time.time() - start_time
+print("---Temps d'execution:  %s seconds ---" + str(execution_time))
+file=open("../data/data_algo1_time.dat","a")
+file.write(str(execution_time))
+file.write("\n")
+file.close()
+
+
