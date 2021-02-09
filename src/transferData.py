@@ -4,6 +4,8 @@ def transferDataAlgo1():
 	lines = datafile.readlines()
 	count=0
 	datafileTransfer=open("../data/data_algo1_time_all.dat","a")
+	datafileTransfer.write(str(0)+";"+str(0))
+	datafileTransfer.write("\n")
 	for line in lines:
 	    count += 1
 	    data=line.strip()
@@ -16,6 +18,8 @@ def transferDataAlgo2():
 	lines = datafile.readlines()
 	count=0
 	datafileTransfer=open("../data/data_algo2_time_all.dat","a")
+	datafileTransfer.write(str(0)+";"+str(0))
+	datafileTransfer.write("\n")
 	for line in lines:
 	    count += 1
 	    data=line.strip()
@@ -28,6 +32,8 @@ def transferDataAlgo3():
 	lines = datafile.readlines()
 	count=0
 	datafileTransfer=open("../data/data_algo3_time_all.dat","a")
+	datafileTransfer.write(str(0)+";"+str(0))
+	datafileTransfer.write("\n")
 	for line in lines:
 	    count += 1
 	    data=line.strip()

@@ -20,7 +20,7 @@ set xtic rotate by -45 scale 0
 set multiplot layout 2, 2 rowsfirst
 
 set yrange [0:0.1]
-set xrange [0:50]
+set xrange [0:51]
 
 #set title "L1 cache"
      
