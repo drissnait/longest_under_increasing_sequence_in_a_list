@@ -31,5 +31,8 @@ plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1", \
      "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2", \
      "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3"
      
+plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1" with linespoints, \
+     "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2" with linespoints , \
+     "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3" with linespoints
 
 unset multiplot
