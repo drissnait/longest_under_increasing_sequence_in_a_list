@@ -49,7 +49,7 @@ print("\ninformation process")
 #print(process.memory_info().rss/1024)
 
 mem = process.memory_info()[0] / float(2 ** 20)
-print(mem)
+print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
 
 execution_time=time.time() - start_time

@@ -51,7 +51,9 @@ print("indice:",b)
 print("\n\n")
 print("valeurs:", [ E[i] for i in b ])
 print("\ninformation process\n")
-print(process.memory_info().rss)
+mem = process.memory_info()[0] / float(2 ** 20)
+print("consommation mémoire en MB :",mem,"Mb")
+print("\n")
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" +str(execution_time))
 file=open("../data/data_algo3_time.dat","a")
@@ -59,7 +61,10 @@ file.write(str(execution_time))
 file.write("\n")
 file.close()
 
-
+file=open("../data/data_algo3_memory.dat","a")
+file.write(str(mem))
+file.write("\n")
+file.close()
 
 
 

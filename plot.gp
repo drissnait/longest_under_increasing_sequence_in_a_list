@@ -36,5 +36,19 @@ set title "graphe courbes du temps d'éxecution pour les lancements"
 plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1" with linespoints, \
      "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2" with linespoints , \
      "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3" with linespoints
+     
+set yrange [0:20]
+set xrange [0:51]
+set xlabel "lancements"
+set ylabel "utilisation de la memoire (MB)"
+set title "graphe histogrammes d'utilisation de la mémoire en MB pour les lancements"
+plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1", \
+     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2", \
+     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3"
+     
+ set title "graphe courbes du temps d'éxecution pour les lancements"  
+plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1" with linespoints, \
+     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2" with linespoints , \
+     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3" with linespoints
 
 unset multiplot
