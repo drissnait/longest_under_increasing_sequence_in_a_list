@@ -53,16 +53,14 @@ for i in range(900):
 #E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
 E=l
 b = plus_longue_sequence_croissante(E)
-print("E",E)
-print("indice:",b)
-print("\n\n")
-print("valeurs:", [ E[i] for i in b ])
-print("\ninformation process\n")
+print("Plus longue sequence :", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" +str(execution_time))
+
+"""Transfer des donnees d'execution dans les fichiers .dat """
 file=open("../data/data_algo2_time.dat","a")
 file.write(str(execution_time))
 file.write("\n")

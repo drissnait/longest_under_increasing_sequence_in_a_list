@@ -7,7 +7,7 @@ import os
 process = psutil.Process(os.getpid())
 start_time=time.time()
 def plus_grande_sequence_wikipedia(E):
-    P = [-1 for _ in E]
+    P = [-1 for _ in E] 
     M = [-1 for _ in E]
 
     L = 0

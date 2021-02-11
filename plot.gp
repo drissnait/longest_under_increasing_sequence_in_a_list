@@ -28,27 +28,27 @@ set xlabel "lancements"
 set ylabel "temps execution"
 set datafile separator ";"
 set title "graphe histogrammes du temps d'éxecution pour les lancements"
-plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1", \
-     "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2", \
-     "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3"
+plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1 (recursive)", \
+     "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2 (non recursive)", \
+     "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3 (algo wikipedia)"
 
 set title "graphe courbes du temps d'éxecution pour les lancements"  
-plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1" with linespoints, \
-     "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2" with linespoints , \
-     "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3" with linespoints
+plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1 (recursive)" with linespoints, \
+     "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2 (non recursive)" with linespoints , \
+     "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3 (algo wikipedia)" with linespoints
      
 set yrange [0:20]
 set xrange [0:51]
 set xlabel "lancements"
 set ylabel "utilisation de la memoire (MB)"
 set title "graphe histogrammes d'utilisation de la mémoire en MB pour les lancements"
-plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1", \
-     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2", \
-     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3"
+plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1 (recursive)", \
+     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2 (non recursive)", \
+     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3 (algo wikipedia)"
      
  set title "graphe courbes du temps d'éxecution pour les lancements"  
-plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1" with linespoints, \
-     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2" with linespoints , \
-     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3" with linespoints
+plot "data/data_algo1_memory_all.dat" u 2:xtic(1) t "algo1 (recursive)" with linespoints, \
+     "data/data_algo2_memory_all.dat" u 2:xtic(1) t "algo2 (non recursive)" with linespoints , \
+     "data/data_algo3_memory_all.dat" u 2:xtic(1) t "algo3 (algo wikipedia)" with linespoints
 
 unset multiplot
