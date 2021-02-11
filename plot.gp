@@ -19,7 +19,7 @@ set xtic rotate by -45 scale 0
 
 set multiplot layout 2, 2 rowsfirst
 
-set yrange [0:0.1]
+set yrange [0:1.2]
 set xrange [0:51]
 
 #set title "L1 cache"
@@ -37,7 +37,7 @@ plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo1 (recursive)" with lines
      "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo2 (non recursive)" with linespoints , \
      "data/data_algo3_time_all.dat" u 2:xtic(1) t "algo3 (algo wikipedia)" with linespoints
      
-set yrange [0:20]
+set yrange [0:25]
 set xrange [0:51]
 set xlabel "lancements"
 set ylabel "utilisation de la memoire (MB)"

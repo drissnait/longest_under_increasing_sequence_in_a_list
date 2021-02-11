@@ -48,8 +48,8 @@ def plus_longue_sequence_croissante(E):
     return seq
 
 l=[]
-for i in range(900):
-	l.append(randint(0,2000))
+for i in range(3000):
+	l.append(randint(0,100000))
 #E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
 E=l
 b = plus_longue_sequence_croissante(E)

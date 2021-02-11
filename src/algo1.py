@@ -5,8 +5,10 @@ import psutil
 import os
 import random
 import timeit
+import sys
 
 process = psutil.Process(os.getpid())
+sys.setrecursionlimit(10000)
 
 start_time=time.time()
 def indexes(liste, k=None):
@@ -36,8 +38,8 @@ def plus_longue_sequence_croissante(liste):
     return plusLongue
 
 l=[]
-for i in range(900):
-	l.append(randint(0,2000))
+for i in range(3000):
+	l.append(randint(0,100000))
 #E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
 E=l
 b = plus_longue_sequence_croissante(E)

@@ -48,27 +48,15 @@ def plus_longue_sequence_croissante(E):
     return seq
 
 l=[]
-for i in range(30):
-	l.append(randint(0,2000))
-E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-#E=l
-#E=[10,80,70,3,50,40,98,4,0,3]
+for i in range(5000):
+	l.append(randint(0,100000))
+#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+E=l
 b = plus_longue_sequence_croissante(E)
-print("E",E)
-print("indice:",b)
-print("\n\n")
-print("valeurs:", [ E[i] for i in b ])
-print("\ninformation process\n")
-#print(process.memory_info().rss)
-
+print("Plus longue sequence :", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
-print(mem)
-
-
+print("consommation mémoire en MB :",mem,"Mb")
+print("\n")
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" +str(execution_time))
-
-
-
-
 

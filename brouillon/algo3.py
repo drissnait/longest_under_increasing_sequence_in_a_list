@@ -41,11 +41,11 @@ def plus_grande_sequence_wikipedia(E):
 
 
 l=[]
-for i in range(30):
-	l.append(randint(0,2000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-#E=l
-E=[10,80,70,3,50,40,98,4,0,3]
+for i in range(5000):
+	l.append(randint(0,100000))
+#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9,20]
+E=l
+#E=[10,80,70,3,50,40,98,4,0,3]
 b = plus_grande_sequence_wikipedia(E)
 print("E",E)
 print("indice:",b)

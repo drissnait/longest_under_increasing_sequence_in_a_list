@@ -5,8 +5,10 @@ import psutil
 import os
 import random
 import timeit
+import sys
 
 process = psutil.Process(os.getpid())
+sys.setrecursionlimit(10000000)
 
 start_time=time.time()
 def indexes(liste, k=None):
@@ -36,32 +38,15 @@ def plus_longue_sequence_croissante(liste):
     return plusLongue
 
 l=[]
-for i in range(30):
-	l.append(randint(0,2000))
-E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-#E= [10,80, 5, 0, 7, 8, 9, 10, 4,12]
-#E=[10,80,70,3,50,40,98,4,0,3]
-#E=l
+for i in range(5000):
+	l.append(randint(0,10000))
+#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+E=l
 b = plus_longue_sequence_croissante(E)
-print("E",E)
-print("indice:",b)
-print("\n\n")
-print("valeurs:", [ E[i] for i in b ])
-print("\ninformation process")
-#print(process.memory_info().rss/1024)
-
+print("Plus longue sequence :", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
 
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" + str(execution_time))
-
-"""mem_resource = []
-for i in range(1, 21):
-    a = np.zeros((1000 * i, 100 * i))
-    mem_resource.append(memory_usage_resource())
-
-print(mem_resource)"""
-
-
