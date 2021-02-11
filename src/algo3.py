@@ -39,7 +39,7 @@ def plus_grande_sequence_wikipedia(E):
     return S
     
 
-
+#Creation de la liste ed 3000 elements sur laquelle on fera nos tests
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))

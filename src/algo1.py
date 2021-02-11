@@ -30,13 +30,17 @@ def plus_longue_sequence_croissante(liste):
     if len(liste) == 0:
         print ("ERREUR: La liste ne contient aucun élement")
         return E
+    #S contient les sequences obtenues, on cherche a avoir la plus grande dans le tableau
     S = indexes(liste)
     plusLongue = []
+    #recherche de la plus longue sequence 
     for s in S:
         if len(s) > len(plusLongue):
             plusLongue = s
     return plusLongue
 
+
+#Creer une liste de 3000 elements aléatoires sur lequel on fera le test
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))

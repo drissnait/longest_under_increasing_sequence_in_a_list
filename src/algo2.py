@@ -43,10 +43,11 @@ def plus_longue_sequence_croissante(E):
     while precedent[seq[-1]] != -1:
         p = precedent[seq[-1]]
         seq.append(p)
-
+    #les elements sont stockes dans la liste en commencant par la plus grande valeur, on inverse donc la sous sequence
     seq.reverse()
     return seq
 
+#Creation de la liste ed 3000 elements sur laquelle on fera nos tests
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))
