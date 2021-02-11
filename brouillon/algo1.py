@@ -9,38 +9,40 @@ import timeit
 process = psutil.Process(os.getpid())
 
 start_time=time.time()
-def plus_grande_sequence_position_k(E, k=None):
+def indexes(liste, k=None):
     if k is None:
         k = len(E)-1
     if k == 0:
         return [[0]]
     else :
-        S = plus_grande_sequence_position_k(E, k-1)
-
-        best = []
+        S = indexes(liste, k-1)
+        plusLongue = []
         for j,s in enumerate(S):
-            if len(s) > len(best) and E[k] >= E [s[-1]]:
-                best = s
-        best = best + [k]
-        S.append(best)
+            if len(s) > len(plusLongue) and liste[k] >= liste [s[-1]]:
+                plusLongue = s
+        plusLongue = plusLongue + [k]
+        S.append(plusLongue)
         return S
 
-def plus_grande_sequence(E):
-    if len(E) == 0:
+def plus_longue_sequence_croissante(liste):
+    if len(liste) == 0:
+        print ("ERREUR: La liste ne contient aucun élement")
         return E
-    S = plus_grande_sequence_position_k(E)
-    best = []
+    S = indexes(liste)
+    plusLongue = []
     for s in S:
-        if len(s) > len(best):
-            best = s
-    return best
+        if len(s) > len(plusLongue):
+            plusLongue = s
+    return plusLongue
 
 l=[]
 for i in range(30):
 	l.append(randint(0,2000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
-b = plus_grande_sequence(E)
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+#E= [10,80, 5, 0, 7, 8, 9, 10, 4,12]
+#E=[10,80,70,3,50,40,98,4,0,3]
+#E=l
+b = plus_longue_sequence_croissante(E)
 print("E",E)
 print("indice:",b)
 print("\n\n")

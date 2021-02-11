@@ -10,7 +10,12 @@ version sans recursivite
 """
 start_time=time.time()
 
-def plus_grande_sequence(E):
+def get_plus_longue_sequence(longueur,longueurMax):
+	for i,l in enumerate(longueur):
+		if l > longueur[longueurMax]:
+		    longueurMax = i
+	return longueurMax
+def plus_longue_sequence_croissante(E):
     if len(E) == 0:
         return E
 
@@ -19,10 +24,8 @@ def plus_grande_sequence(E):
 
     longueur[0] = 1
     for k in range(1, len(E)):
-
         bestL = 1
         bestP = -1
-
         for j in range(0,k) :
             if E[k] >= E [ j ] and longueur[j]+1 > bestL:
                 bestL = longueur [j]+1
@@ -31,14 +34,12 @@ def plus_grande_sequence(E):
         precedent[k] = bestP
         longueur[k] = bestL
 
-    # on récupère la longueur de la plus grande séquence
-    maxiL = 0
-    for i,l in enumerate(longueur):
-        if l > longueur[maxiL]:
-            maxiL = i
+    # longueurMax est l'element max du tableau longueur qui contient les longueurs des differentes sous sequences
+    longueurMax=get_plus_longue_sequence(longueur,0)
 
     # on récupère la plus grande séquence
-    seq = [maxiL]
+    seq = [longueurMax]
+
     while precedent[seq[-1]] != -1:
         p = precedent[seq[-1]]
         seq.append(p)
@@ -49,9 +50,10 @@ def plus_grande_sequence(E):
 l=[]
 for i in range(30):
 	l.append(randint(0,2000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
-b = plus_grande_sequence(E)
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+#E=l
+#E=[10,80,70,3,50,40,98,4,0,3]
+b = plus_longue_sequence_croissante(E)
 print("E",E)
 print("indice:",b)
 print("\n\n")
