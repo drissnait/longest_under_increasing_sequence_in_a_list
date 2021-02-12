@@ -12,7 +12,7 @@ def plus_grande_sequence_wikipedia(E):
     M = [-1 for _ in E]
 
     L = 0
-    for i in range(0, len(E)):
+    for i in range(0, len(E)-1):
         lo = 1
         hi = L
         while lo <= hi:

@@ -28,7 +28,7 @@ def plus_longue_sequence_croissante(liste):
         toplength = 1
         toppredecesseur = -1
         for j in range(0,k) :
-            if liste[k] >= liste [ j ] and longueur[j]+1 > toplength:
+            if liste[k] > liste [ j ] and longueur[j]+1 > toplength:
                 toplength = longueur [j]+1
                 toppredecesseur = j    
         
@@ -50,12 +50,15 @@ def plus_longue_sequence_croissante(liste):
     return seq
 
 l=[]
-for i in range(30):
+for i in range(5000):
 	l.append(randint(0,100000))
-E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9,18,29,9,3,57,92,4,182,34,58,2,3,472,502,382,594,90]
 #E=l
 b = plus_longue_sequence_croissante(E)
-print("Plus longue sequence :", [ E[i] for i in b ])
+print("E",E)
+print("indice:",b)
+print("\n\n")
+print("valeurs:", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")

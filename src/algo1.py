@@ -21,7 +21,7 @@ def indexes(liste, k=None):
         S = indexes(liste, k-1)
         plusLongue = []
         for j,s in enumerate(S):
-            if len(s) > len(plusLongue) and liste[k] >= liste [s[-1]]:
+            if len(s) > len(plusLongue) and liste[k] > liste [s[-1]]:
                 plusLongue = s
         plusLongue = plusLongue + [k]
         S.append(plusLongue)

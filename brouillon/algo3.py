@@ -11,7 +11,7 @@ def plus_grande_sequence_wikipedia(E):
     M = [-1 for _ in E]
 
     L = 0
-    for i in range(0, len(E)):
+    for i in range(0, len(E)-1):
         lo = 1
         hi = L
         while lo <= hi:
@@ -43,8 +43,8 @@ def plus_grande_sequence_wikipedia(E):
 l=[]
 for i in range(5000):
 	l.append(randint(0,100000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9,20]
-E=l
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9,18,29,9,3,57,92,4,182,34,58,2,3,472,502,382,594,90]
+#E=l
 #E=[10,80,70,3,50,40,98,4,0,3]
 b = plus_grande_sequence_wikipedia(E)
 print("E",E)

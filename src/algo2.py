@@ -22,27 +22,24 @@ def plus_longue_sequence_croissante(liste):
 
     precedent = [-1 for e in liste]
     longueur  = [0 for e in liste]
-
+    
     longueur[0] = 1
     k=1
     while(k<len(liste)):
         toplength = 1
         toppredecesseur = -1
         for j in range(0,k) :
-            if liste[k] >= liste [ j ] and longueur[j]+1 > toplength:
+            if liste[k] > liste [ j ] and longueur[j]+1 > toplength:
                 toplength = longueur [j]+1
                 toppredecesseur = j    
         
         precedent[k] = toppredecesseur
         longueur[k] = toplength
         k+=1
-
     # longueurMax est l'element max du tableau longueur qui contient les longueurs des differentes sous sequences
     longueurMax=get_plus_longue_sequence(longueur,0)
-
     # on récupère la plus grande séquence
     seq = [longueurMax]
-
     while precedent[seq[-1]] != -1:
         p = precedent[seq[-1]]
         seq.append(p)

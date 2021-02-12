@@ -20,7 +20,7 @@ def indexes(liste, k=None):
         S = indexes(liste, k-1)
         plusLongue = []
         for j,s in enumerate(S):
-            if len(s) > len(plusLongue) and liste[k] >= liste [s[-1]]:
+            if len(s) > len(plusLongue) and liste[k] > liste [s[-1]]:
                 plusLongue = s
         plusLongue = plusLongue + [k]
         S.append(plusLongue)
@@ -40,10 +40,13 @@ def plus_longue_sequence_croissante(liste):
 l=[]
 for i in range(5000):
 	l.append(randint(0,10000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9,18,29,9,3,57,92,4,182,34,58,2,3,472,502,382,594,90]
+#E=l
 b = plus_longue_sequence_croissante(E)
-print("Plus longue sequence :", [ E[i] for i in b ])
+print("E",E)
+print("indice:",b)
+print("\n\n")
+print("valeurs:", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
