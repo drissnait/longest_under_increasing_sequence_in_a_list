@@ -3,6 +3,7 @@ from random import randint
 import psutil
 import time
 import os
+from test import *
 
 process = psutil.Process(os.getpid())
 """
@@ -15,24 +16,26 @@ def get_plus_longue_sequence(longueur,longueurMax):
 		if l > longueur[longueurMax]:
 		    longueurMax = i
 	return longueurMax
-def plus_longue_sequence_croissante(E):
-    if len(E) == 0:
-        return E
+def plus_longue_sequence_croissante(liste):
+    if len(liste) == 0:
+        return liste
 
-    precedent = [-1 for e in E]
-    longueur  = [0 for e in E]
+    precedent = [-1 for e in liste]
+    longueur  = [0 for e in liste]
 
     longueur[0] = 1
-    for k in range(1, len(E)):
-        bestL = 1
-        bestP = -1
+    k=1
+    while(k<len(liste)):
+        toplength = 1
+        toppredecesseur = -1
         for j in range(0,k) :
-            if E[k] >= E [ j ] and longueur[j]+1 > bestL:
-                bestL = longueur [j]+1
-                bestP = j
-
-        precedent[k] = bestP
-        longueur[k] = bestL
+            if liste[k] >= liste [ j ] and longueur[j]+1 > toplength:
+                toplength = longueur [j]+1
+                toppredecesseur = j    
+        
+        precedent[k] = toppredecesseur
+        longueur[k] = toplength
+        k+=1
 
     # longueurMax est l'element max du tableau longueur qui contient les longueurs des differentes sous sequences
     longueurMax=get_plus_longue_sequence(longueur,0)
@@ -60,6 +63,16 @@ print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" +str(execution_time))
+
+
+"""Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
+fileTest=open("../resultat_test/resultat_test_algo2.dat","a")
+if(verifier_croissance(b)==True):
+	fileTest.write("1")
+	fileTest.write("\n")
+else:
+	fileTest.write("0")
+fileTest.close()
 
 """Transfer des donnees d'execution dans les fichiers .dat """
 file=open("../data/data_algo2_time.dat","a")

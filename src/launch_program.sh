@@ -7,6 +7,10 @@ rm ../data/data_algo1_memory.dat
 rm ../data/data_algo2_memory.dat
 rm ../data/data_algo3_memory.dat
 
+rm ../resultat_test/resultat_test_algo1.dat
+rm ../resultat_test/resultat_test_algo2.dat
+rm ../resultat_test/resultat_test_algo3.dat
+ 
 for i in {1..50}
 do
    python3 algo1.py

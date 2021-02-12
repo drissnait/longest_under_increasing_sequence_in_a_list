@@ -3,6 +3,7 @@ from random import randint
 import psutil
 import time
 import os
+from test import *
 
 process = psutil.Process(os.getpid())
 start_time=time.time()
@@ -53,6 +54,16 @@ print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" +str(execution_time))
+
+
+"""Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
+fileTest=open("../resultat_test/resultat_test_algo3.dat","a")
+if(verifier_croissance(b)==True):
+	fileTest.write("1")
+	fileTest.write("\n")
+else:
+	fileTest.write("0")
+fileTest.close()
 
 """Transfer des donnees d'execution dans les fichiers .dat """
 file=open("../data/data_algo3_time.dat","a")

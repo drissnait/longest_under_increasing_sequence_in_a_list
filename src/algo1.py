@@ -6,6 +6,7 @@ import os
 import random
 import timeit
 import sys
+from test import *
 
 process = psutil.Process(os.getpid())
 sys.setrecursionlimit(10000)
@@ -51,6 +52,18 @@ print("Plus longue sequence :", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
+
+"""Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
+fileTest=open("../resultat_test/resultat_test_algo1.dat","a")
+if(verifier_croissance(b)==True):
+	fileTest.write("1")
+	fileTest.write("\n")
+else:
+	fileTest.write("0")
+fileTest.close()
+
+
+
 
 execution_time=time.time() - start_time
 print("---Temps d'execution:  %s seconds ---" + str(execution_time))

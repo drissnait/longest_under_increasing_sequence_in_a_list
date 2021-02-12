@@ -15,24 +15,26 @@ def get_plus_longue_sequence(longueur,longueurMax):
 		if l > longueur[longueurMax]:
 		    longueurMax = i
 	return longueurMax
-def plus_longue_sequence_croissante(E):
-    if len(E) == 0:
-        return E
+def plus_longue_sequence_croissante(liste):
+    if len(liste) == 0:
+        return liste
 
-    precedent = [-1 for e in E]
-    longueur  = [0 for e in E]
+    precedent = [-1 for e in liste]
+    longueur  = [0 for e in liste]
 
     longueur[0] = 1
-    for k in range(1, len(E)):
-        bestL = 1
-        bestP = -1
+    k=1
+    while(k<len(liste)):
+        toplength = 1
+        toppredecesseur = -1
         for j in range(0,k) :
-            if E[k] >= E [ j ] and longueur[j]+1 > bestL:
-                bestL = longueur [j]+1
-                bestP = j
-
-        precedent[k] = bestP
-        longueur[k] = bestL
+            if liste[k] >= liste [ j ] and longueur[j]+1 > toplength:
+                toplength = longueur [j]+1
+                toppredecesseur = j    
+        
+        precedent[k] = toppredecesseur
+        longueur[k] = toplength
+        k+=1
 
     # longueurMax est l'element max du tableau longueur qui contient les longueurs des differentes sous sequences
     longueurMax=get_plus_longue_sequence(longueur,0)
@@ -48,10 +50,10 @@ def plus_longue_sequence_croissante(E):
     return seq
 
 l=[]
-for i in range(5000):
+for i in range(30):
 	l.append(randint(0,100000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
+E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+#E=l
 b = plus_longue_sequence_croissante(E)
 print("Plus longue sequence :", [ E[i] for i in b ])
 mem = process.memory_info()[0] / float(2 ** 20)
