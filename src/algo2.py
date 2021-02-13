@@ -6,9 +6,6 @@ import os
 from test import *
 
 process = psutil.Process(os.getpid())
-"""
-version sans recursivite
-"""
 start_time=time.time()
 
 def get_plus_longue_sequence(longueur,longueurMax):
@@ -47,14 +44,13 @@ def plus_longue_sequence_croissante(liste):
     seq.reverse()
     return seq
 
-#Creation de la liste ed 3000 elements sur laquelle on fera nos tests
+#Creation de la liste de 3000 elements sur laquelle on fera nos tests
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
-b = plus_longue_sequence_croissante(E)
-print("Plus longue sequence :", [ E[i] for i in b ])
+#l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+res = plus_longue_sequence_croissante(l)
+print("Plus longue sequence :", [ l[i] for i in res ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
@@ -64,7 +60,7 @@ print("---Temps d'execution:  %s seconds ---" +str(execution_time))
 
 """Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
 fileTest=open("../resultat_test/resultat_test_algo2.dat","a")
-if(verifier_croissance(b)==True):
+if(verifier_croissance(res)==True):
 	fileTest.write("1")
 	fileTest.write("\n")
 else:

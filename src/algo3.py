@@ -44,11 +44,10 @@ def plus_grande_sequence_wikipedia(E):
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))
-#E = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-E=l
-b = plus_grande_sequence_wikipedia(E)
+#l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+res = plus_grande_sequence_wikipedia(l)
 
-print("Plus longue sequence :", [ E[i] for i in b ])
+print("Plus longue sequence :", [ l[i] for i in res ])
 mem = process.memory_info()[0] / float(2 ** 20)
 print("consommation mémoire en MB :",mem,"Mb")
 print("\n")
@@ -58,7 +57,7 @@ print("---Temps d'execution:  %s seconds ---" +str(execution_time))
 
 """Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
 fileTest=open("../resultat_test/resultat_test_algo3.dat","a")
-if(verifier_croissance(b)==True):
+if(verifier_croissance(res)==True):
 	fileTest.write("1")
 	fileTest.write("\n")
 else:
