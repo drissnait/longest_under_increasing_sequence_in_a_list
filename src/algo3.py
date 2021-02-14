@@ -8,9 +8,8 @@ from test import *
 process = psutil.Process(os.getpid())
 start_time=time.time()
 def plus_grande_sequence_wikipedia(E):
-    P = [-1 for _ in E]
-    M = [-1 for _ in E]
-
+    P = [-1 for m in E]
+    M = [-1 for n in E]
     L = 0
     for i in range(0, len(E)-1):
         lo = 1
@@ -21,7 +20,6 @@ def plus_grande_sequence_wikipedia(E):
                 lo = mid + 1
             else:
                 hi = mid - 1
-
         newL = lo
         P[i] = M[newL - 1]
 
@@ -30,13 +28,11 @@ def plus_grande_sequence_wikipedia(E):
             L = newL
         elif E[i] < E[M[newL]]:
             M[newL] = i
-
     S = [-1 for i in range(L)]
     k = M[L]
     for i in range(L-1, -1, -1) :
         S[i] = k
         k = P[k]
-
     return S
     
 

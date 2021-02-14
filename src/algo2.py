@@ -48,7 +48,7 @@ def plus_longue_sequence_croissante(liste):
 l=[]
 for i in range(3000):
 	l.append(randint(0,100000))
-l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+#l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
 res = plus_longue_sequence_croissante(l)
 print("Plus longue sequence :", [ l[i] for i in res ])
 mem = process.memory_info()[0] / float(2 ** 20)
