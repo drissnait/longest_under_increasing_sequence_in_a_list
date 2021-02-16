@@ -21,16 +21,19 @@ set multiplot layout 2, 2 rowsfirst
 set datafile separator ";"
 set yrange [0:0.2]
 set xrange [0:11]
+set xlabel "lancements"
+set ylabel "temps execution"
 set title "courbe du temps d'éxecution pour les lancements de la version récursive"
 plot "data/data_algo1_time_all.dat" u 2:xtic(1) t "algo recursif" with linespoints
 
 set yrange [0:10]
 set xrange [0:11]
-set xlabel "lancements"
-set ylabel "temps execution"
+
 set title "courbe du temps d'éxecution pour les lancements de la version itérative"
 plot "data/data_algo2_time_all.dat" u 2:xtic(1) t "algo iteratif" with linespoints
 
+set xlabel "lancements"
+set ylabel "Espace mémoire en Mb"
 set yrange [0:25]
 set xrange [0:11]
 set title "courbe d'espace memoire pour les lancements"

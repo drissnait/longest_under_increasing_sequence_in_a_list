@@ -1,15 +1,15 @@
 #!/bin/bash
-rm ../data/data_algo1_time.dat
-rm ../data/data_algo2_time.dat
-rm ../data/data_algo3_time.dat
+rm ../data/data_algo1_time.dat 2>/dev/null
+rm ../data/data_algo2_time.dat 2>/dev/null
+rm ../data/data_algo3_time.dat 2>/dev/null
 
-rm ../data/data_algo1_memory.dat
-rm ../data/data_algo2_memory.dat
-rm ../data/data_algo3_memory.dat
+rm ../data/data_algo1_memory.dat  2>/dev/null
+rm ../data/data_algo2_memory.dat 2>/dev/null
+rm ../data/data_algo3_memory.dat 2>/dev/null
 
-rm ../resultat_test/resultat_test_algo1.dat
-rm ../resultat_test/resultat_test_algo2.dat
-rm ../resultat_test/resultat_test_algo3.dat
+rm ../resultat_test/resultat_test_algo1.dat 2>/dev/null
+rm ../resultat_test/resultat_test_algo2.dat 2>/dev/null
+rm ../resultat_test/resultat_test_algo3.dat 2>/dev/null
  
 for i in {1..10}
 do

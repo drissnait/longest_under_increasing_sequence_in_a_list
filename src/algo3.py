@@ -7,7 +7,7 @@ from test import *
 
 
 
-def plus_grande_sequence_wikipedia(E):
+def plus_grande_sequence_rd(E):
     P = [-1 for m in E]
     M = [-1 for n in E]
     L = 0
@@ -42,7 +42,7 @@ l=[10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 52, 24, 123, 348, 1324, 12, 43, 124,
 process = psutil.Process(os.getpid())
 #temps d'execution
 start_time=time.time()
-res = plus_grande_sequence_wikipedia(l)
+res = plus_grande_sequence_rd(l)
 execution_time=time.time() - start_time
 mem = process.memory_info()[0] / float(2 ** 20)
 
