@@ -5,13 +5,13 @@ import time
 import os
 from test import *
 
-process = psutil.Process(os.getpid())
-start_time=time.time()
+
+
 def plus_grande_sequence_wikipedia(E):
     P = [-1 for m in E]
     M = [-1 for n in E]
     L = 0
-    for i in range(0, len(E)-1):
+    for i in range(0, len(E)):
         lo = 1
         hi = L
         while lo <= hi:
@@ -34,21 +34,19 @@ def plus_grande_sequence_wikipedia(E):
         S[i] = k
         k = P[k]
     return S
-    
+  
 
 #Creation de la liste ed 3000 elements sur laquelle on fera nos tests
-l=[]
-for i in range(3000):
-	l.append(randint(0,100000))
-#l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
+l=[10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 52, 24, 123, 348, 1324, 12, 43, 124, 554, 23, 432, 398, 234, 3432]
+#espace memoire
+process = psutil.Process(os.getpid())
+#temps d'execution
+start_time=time.time()
 res = plus_grande_sequence_wikipedia(l)
+execution_time=time.time() - start_time
+mem = process.memory_info()[0] / float(2 ** 20)
 
 print("Plus longue sequence :", [ l[i] for i in res ])
-mem = process.memory_info()[0] / float(2 ** 20)
-print("consommation mémoire en MB :",mem,"Mb")
-print("\n")
-execution_time=time.time() - start_time
-print("---Temps d'execution:  %s seconds ---" +str(execution_time))
 
 
 """Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
@@ -70,7 +68,3 @@ file=open("../data/data_algo3_memory.dat","a")
 file.write(str(mem))
 file.write("\n")
 file.close()
-
-
-
-

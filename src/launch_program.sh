@@ -11,7 +11,7 @@ rm ../resultat_test/resultat_test_algo1.dat
 rm ../resultat_test/resultat_test_algo2.dat
 rm ../resultat_test/resultat_test_algo3.dat
  
-for i in {1..50}
+for i in {1..10}
 do
    python3 algo1.py
    python3 algo2.py

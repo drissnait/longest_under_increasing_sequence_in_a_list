@@ -1,61 +1,42 @@
 # encoding: utf-8
-from random import randint
-import psutil
 import time
+import psutil
 import os
 from test import *
 
+
+class ListItem:
+    def __init__(self, item, position):
+        self.item = item
+        self.position = position
+
+def plus_longue_sequence_iteratif(liste):
+	elements_to_process = []
+	for i in range(len(liste)):
+		elements_to_process.append([ListItem(liste[i], i)])
+	longest_sequence = []
+	while elements_to_process:
+		element = elements_to_process.pop()
+		for i in range(element[len(element) - 1].position + 1, len(liste)):
+			for j in range(i, len(liste)):
+				if liste[j] > element[len(element) - 1].item:
+					elements_to_process.append(element + [ListItem(liste[j], j)])
+					if len(longest_sequence) < len(element) + 1:
+						longest_sequence = element + [ListItem(liste[j], j)]
+						
+	return list(map(lambda list_item: list_item.item, longest_sequence))
+
+
+liste=[10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 52, 24, 123, 348, 1324, 12, 43, 124, 554, 23, 432, 398, 234, 3432]
+#pour l'espace memoire
 process = psutil.Process(os.getpid())
+#pour le temps d'execution
 start_time=time.time()
-
-def get_plus_longue_sequence(longueur,longueurMax):
-	for i,l in enumerate(longueur):
-		if l > longueur[longueurMax]:
-		    longueurMax = i
-	return longueurMax
-def plus_longue_sequence_croissante(liste):
-    if len(liste) == 0:
-        return liste
-
-    precedent = [-1 for e in liste]
-    longueur  = [0 for e in liste]
-    
-    longueur[0] = 1
-    k=1
-    while(k<len(liste)):
-        toplength = 1
-        toppredecesseur = -1
-        for j in range(0,k) :
-            if liste[k] > liste [ j ] and longueur[j]+1 > toplength:
-                toplength = longueur [j]+1
-                toppredecesseur = j    
-        
-        precedent[k] = toppredecesseur
-        longueur[k] = toplength
-        k+=1
-    # longueurMax est l'element max du tableau longueur qui contient les longueurs des differentes sous sequences
-    longueurMax=get_plus_longue_sequence(longueur,0)
-    # on récupère la plus grande séquence
-    seq = [longueurMax]
-    while precedent[seq[-1]] != -1:
-        p = precedent[seq[-1]]
-        seq.append(p)
-    #les elements sont stockes dans la liste en commencant par la plus grande valeur, on inverse donc la sous sequence
-    seq.reverse()
-    return seq
-
-#Creation de la liste de 3000 elements sur laquelle on fera nos tests
-l=[]
-for i in range(3000):
-	l.append(randint(0,100000))
-#l = [10, 15, 7, 19, 2, 5, 7, 16, 3, 9, 15, 0, 1, 15, 6, 11, 0, 14, 7, 9]
-res = plus_longue_sequence_croissante(l)
-print("Plus longue sequence :", [ l[i] for i in res ])
-mem = process.memory_info()[0] / float(2 ** 20)
-print("consommation mémoire en MB :",mem,"Mb")
-print("\n")
+res=plus_longue_sequence_iteratif(liste)
 execution_time=time.time() - start_time
-print("---Temps d'execution:  %s seconds ---" +str(execution_time))
+mem = process.memory_info()[0] / float(2 ** 20)
+
+print("Plus longue sequence : "+str(res))
 
 
 """Transfer les résultats de verification de croissance de liste dans un fichier.dat"""
@@ -66,6 +47,8 @@ if(verifier_croissance(res)==True):
 else:
 	fileTest.write("0")
 fileTest.close()
+
+
 
 """Transfer des donnees d'execution dans les fichiers .dat """
 file=open("../data/data_algo2_time.dat","a")
