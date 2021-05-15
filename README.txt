@@ -1,5 +1,3 @@
-								PROJET AAVP
-								
 Pour lancer le programme il faut :
 	-se déplacer dans le répertoire /src : "cd src/"
 	-lancer le script bash qui lance les programmes avec la commande : "bash launch_program.sh"
